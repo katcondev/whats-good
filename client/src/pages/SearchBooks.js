@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Jumbotron, Container, Col, Form, Button, Card, CardColumns } from 'react-bootstrap';
 
+import logo from '../../src/assets/images/BROWN-BUG.png'
+
 import Auth from '../utils/auth';
 import { searchGoogleBooks } from '../utils/API';
 import { saveBookIds, getSavedBookIds } from '../utils/localStorage';
@@ -89,9 +91,9 @@ const SearchBooks = () => {
 
   return (
     <>
-      <Jumbotron fluid className='text-light bg-dark'>
+      <Jumbotron fluid className='text-light'>
         <Container>
-          <h1>Search for Books!</h1>
+          <img src={logo} style={{ width: "85%" }} />
           <Form onSubmit={handleFormSubmit}>
             <Form.Row>
               <Col xs={12} md={8}>
@@ -105,7 +107,7 @@ const SearchBooks = () => {
                 />
               </Col>
               <Col xs={12} md={4}>
-                <Button type='submit' variant='success' size='lg'>
+                <Button type='submit' variant='success' size='md'>
                   Submit Search
                 </Button>
               </Col>
@@ -118,7 +120,7 @@ const SearchBooks = () => {
         <h2>
           {searchedBooks.length
             ? `Viewing ${searchedBooks.length} results:`
-            : 'Search for a book to begin'}
+            : 'really great quote about black resillience and community'}
         </h2>
         <CardColumns>
           {searchedBooks.map((book) => {
