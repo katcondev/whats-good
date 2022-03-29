@@ -16,7 +16,7 @@ const AppNavbar = () => {
     <>
       <Navbar expand='lg'>
         <Container fluid>
-          <Navbar.Brand as={Link} to='/'>
+          <Navbar.Brand className='navbar-wg' as={Link} to='/' >
             An unapologetic Experience
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='navbar' />
