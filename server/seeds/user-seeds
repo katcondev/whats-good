@@ -1,0 +1,100 @@
+[
+  {
+    "customerId": "1324564",
+    "firstName": "John",
+    "lastName": "smith",
+    "userName": "socialcancer",
+    "email": "example@example.com",
+    "affiliation": "african-american",
+    "phone": "3232757749",
+    "city": "Los Angeles",
+    "avatar": "https://placekitten.com/300/300"
+  },
+  {
+    "customerId": "12312345",
+    "firstName": "Joanne",
+    "lastName": "smith",
+    "userName": "joannaZ",
+    "affiliation": "african-american",
+    "phone": "3232757749",
+    "city": "New York",
+    "email": "example1@example.com",
+    "avatar": "https://placekitten.com/300/300"
+  },
+  {
+    "customerId": "1547851",
+    "firstName": "Bob",
+    "lastName": "jones",
+    "userName": "mr.bjones",
+    "affiliation": "african-american",
+    "phone": "3232757749",
+    "city": "Portland",
+    "email": "example2@example.com",
+    "avatar": "https://placekitten.com/300/300"
+  },
+  {
+    "customerId": "12345421",
+    "firstName": "Will",
+    "lastName": "Allen",
+    "userName": "chillyWill",
+    "affiliation": "irish-american",
+    "phone": "3232757749",
+    "city": "San Francisco",
+    "email": "exampl4e@example.com",
+    "avatar": "https://placekitten.com/300/300"
+  },
+  {
+    "customerId": "5264894",
+    "firstName": "Robert",
+    "lastName": "Edwards",
+    "userName": "big rob",
+    "affiliation": "alley",
+    "phone": "3232757749",
+    "city": "Compton",
+    "email": "exampl5e@example.com",
+    "avatar": "https://placekitten.com/300/300"
+  },
+  {
+    "customerId": "2564851",
+    "firstName": "Mike",
+    "lastName": "Baker",
+    "userName": "mikey",
+    "affiliation": "hispanic-american",
+    "phone": "3232757749",
+    "city": "Flagstaff",
+    "email": "example6@example.com",
+    "avatar": "https://placekitten.com/300/300"
+  },
+  {
+    "customerId": "5264859",
+    "firstName": "Pauly",
+    "lastName": "Jones",
+    "userName": "pj",
+    "affiliation": "hispanic-american",
+    "phone": "3232757749",
+    "city": "New Mexico",
+    "email": "example7@example.com",
+    "avatar": "https://placekitten.com/300/300"
+  },
+  {
+    "customerId": "36521414",
+    "firstName": "Jack",
+    "lastName": "Johnson",
+    "userName": "pj",
+    "affiliation": "african-american",
+    "phone": "3232757749",
+    "city": "New Mexico",
+    "email": "example7@example.com",
+    "avatar": "https://placekitten.com/300/300"
+  },
+  {
+    "name": "Peter",
+    "email": "example@example.com",
+    "avatar": "https://placekitten.com/300/300"
+  },
+  {
+    "name": "Paul",
+    "email": "example@example.com",
+    "avatar": "https://placekitten.com/300/300"
+  }
+]

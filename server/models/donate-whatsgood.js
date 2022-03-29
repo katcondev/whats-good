@@ -1,8 +1,8 @@
-const { Schema, model } = require('mongoose');
-// const moment = require('moment');
-
-//use to possibly import schema from visits or stars
-// const visitSchema = require('./Visits');
+const {
+    Schema,
+    model
+} = require('mongoose');
+const moment = require('moment');
 
 const UserSchema = new Schema({
     customerid: {
@@ -32,32 +32,50 @@ const UserSchema = new Schema({
             message: props => `${props.value} is not a valid email address!`
         },
     },
-    affiliation: {
+      affiliation: {
         type: String,
         required: true,
         trim: true
     },
-    city: {
+       affiliation: {
         type: String,
         required: true,
         trim: true
     },
-    zip: {
+      phone: {
         type: String,
         required: true,
         trim: true
     },
-    starsgiven: {
+       street: {
         type: String,
         required: true,
         trim: true
     },
-    starsassoc: {
+        city: {
         type: String,
         required: true,
         trim: true
     },
-
+       zip: {
+        type: String,
+        required: true,
+        trim: true
+    },
+       starsgiven: {
+        type: String,
+        required: true,
+        trim: true
+    },
+       starsassoc: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    
+    
+    
+    
 }, {
     toJSON: {
         virtuals: true,
@@ -66,9 +84,9 @@ const UserSchema = new Schema({
     id: false
 });
 
-// UserSchema.virtual('friendCount').get(function () {
-//     return this.friends.length;
-// });
+UserSchema.virtual('friendCount').get(function () {
+    return this.friends.length;
+});
 
 const User = model('User', UserSchema);
 

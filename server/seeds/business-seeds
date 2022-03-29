@@ -1,0 +1,80 @@
+{
+    {
+        "name": "Dan's Place",
+        "rating": 3,
+        "address": "125 High Street, New York, 10001",
+        "coordinates": [-73.0812, 40.8732],
+        "attributes": ["Hot drinks", "Food", "Premium wifi"],
+        "openHours": [
+            {
+                "days": "Monday - Friday",
+                "opening": "7:00am",
+                "closing": "7:00pm",
+                "closed": false
+            },
+            {
+                "days": "Saturday",
+                "opening": "8:00am",
+                "closing": "5:00pm",
+                "closed": false
+            },
+            {
+                "days": "Sunday",
+                "closed": true
+            }
+        ],
+        "reviews": [
+            {
+                "rating": 4,
+                "author": "Philly B.",
+                "timestamp": "new Date('Feb 3, 2016')",
+                "body": "It was fine, but coffee was a bit dull. Nice atmosphere."
+            },
+            {
+                "rating": 3,
+                "author": "Tom B.",
+                "timestamp": "new Date('Feb 23, 2016')",
+                "body": "I asked for her number. She said no."
+            }
+        ]
+    },
+    {
+        "name": "Jared's Jive",
+        "rating": 5,
+        "address": "747 Fly Court, New York, 10001",
+        "coordinates": [-73.0812, 40.8732],
+        "attributes": ["Live Music", "Rooftop Bar", "2 Floors"],
+        "openHours": [
+            {
+                "days": "Monday - Friday",
+                "opening": "7:00am",
+                "closing": "7:00pm",
+                "closed": false
+            },
+            {
+                "days": "Saturday",
+                "opening": "8:00am",
+                "closing": "5:00pm",
+                "closed": false
+            },
+            {
+                "days": "Sunday",
+                "closed": true
+            }
+        ],
+        "reviews": [
+            {
+                "rating": 5,
+                "author": "Jacob G.",
+                "timestamp": "new Date('Feb 3, 2016')",
+                "body": "Whoa! The music here is wicked good. Definitely going again."
+            },
+            {
+                "rating": 4,
+                "author": "Tom B.",
+                "timestamp": "new Date('Feb 23, 2016')",
+                "body": "I asked to play her a tune. She said no."
+            }
+        ]
+    }
+}

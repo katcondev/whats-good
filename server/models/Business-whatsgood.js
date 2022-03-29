@@ -1,22 +1,22 @@
-const { Schema, model } = require('mongoose');
-// const moment = require('moment');
+const {
+    Schema,
+    model
+} = require('mongoose');
+const moment = require('moment');
 
-//use to possibly import schema from visits or stars
-// const visitSchema = require('./Visits');
-
-const UserSchema = new Schema({
-    customerid: {
+const BusinessSchema = new Schema({
+    businesss_id: {
         type: String,
         unique: true,
         required: true,
         trim: true
     },
-    firstname: {
+    business_name: {
         type: String,
         required: true,
         trim: true
     },
-    lastname: {
+    about: {
         type: String,
         required: true,
         trim: true
@@ -32,32 +32,57 @@ const UserSchema = new Schema({
             message: props => `${props.value} is not a valid email address!`
         },
     },
-    affiliation: {
+      affiliation: {
         type: String,
         required: true,
         trim: true
     },
-    city: {
+       num_of_employees: {
         type: String,
         required: true,
         trim: true
     },
-    zip: {
+       employee_demo: {
         type: String,
         required: true,
         trim: true
     },
-    starsgiven: {
+      customer_demo: {
         type: String,
         required: true,
         trim: true
     },
-    starsassoc: {
+      stars_received: {
         type: String,
         required: true,
         trim: true
     },
-
+     avg_received: {
+        type: String,
+        required: true,
+        trim: true
+    },
+      phone: {
+        type: String,
+        required: true,
+        trim: true
+    },
+       street: {
+        type: String,
+        required: true,
+        trim: true
+    },
+        city: {
+        type: String,
+        required: true,
+        trim: true
+    },
+       zip: {
+        type: String,
+        required: true,
+        trim: true
+    }
+    
 }, {
     toJSON: {
         virtuals: true,
@@ -70,6 +95,6 @@ const UserSchema = new Schema({
 //     return this.friends.length;
 // });
 
-const User = model('User', UserSchema);
+const Business = model('Business', BusinessSchema);
 
 module.exports = User;
