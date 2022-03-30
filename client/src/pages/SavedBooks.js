@@ -1,6 +1,6 @@
 import React from 'react';
 import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap';
-import { useQuery, useMutation } from "@apollo/react-hooks";
+import { useQuery, useMutation } from "@apollo/client";
 
 import Auth from '../utils/auth';
 import { removeBookId, saveBookIds } from "../utils/localStorage";
@@ -26,9 +26,6 @@ const SavedBooks = () => {
         variables: { bookId: bookId },
       });
 
-      if (!response.ok) {
-        throw new Error('something went wrong!');
-      }
 
       removeBookId(bookId);
     } catch (err) {
@@ -40,7 +37,7 @@ const SavedBooks = () => {
   if (loading) {
     return <h2>LOADING...</h2>;
   }
-
+  debugger
   // get info from localStorage by the use data queries
   const savedBookIds = userData.savedBooks.map(book => book.bookId);
   saveBookIds(savedBookIds);

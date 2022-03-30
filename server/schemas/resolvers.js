@@ -20,6 +20,8 @@ const resolvers = {
   },
   Mutation: {
     login: async (parent, { email, password }) => {
+      console.log('email', email);
+      console.log('password', password);
       const user = await User.findOne({ email });
       // checking if user exists with email and credentials
       if (!user) {
