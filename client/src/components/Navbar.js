@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
 import SignUpForm from './SignupForm';
 import LoginForm from './LoginForm';
-import logo from '../../src/assets/images/BLACK-LOGO.png'
+import logo from '../../src/assets/images/BROWN-BUG.png'
 
 
 import Auth from '../utils/auth';
@@ -17,7 +17,7 @@ const AppNavbar = () => {
       <Navbar expand='lg'>
         <Container fluid>
           <Navbar.Brand className='navbar-wg' as={Link} to='/' >
-            An unapologetic Experience
+          <p>An Unapologetic Experience</p>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
