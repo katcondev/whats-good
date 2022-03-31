@@ -50,6 +50,19 @@ h6 {
 
 }
 
+.modal-content {
+  background-color: #BF7256;
+}
+
+.modal-content .nav-pills .nav-link.active {
+  color: #f2e9d8;
+  background-color: #734136;
+}
+
+.modal-content a {
+  color: #f2e9d8;
+}
+
 .form-control {
   background-color: #f2e9d8;
   color: #734136;
