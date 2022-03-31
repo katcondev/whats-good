@@ -27,23 +27,23 @@ const userSchema = new Schema(
     },
     address: {
       type: String,
-      required: true
+      required: false
     },
     city: {
       type: String,
-      required: true
+      required: false
     },
     zip: {
       type: String,
-      required: true
+      required: false
     },
     starsGiven: {
       type: String,
-      required: true
+      required: false
     },
     starsAssoc: {
       type: String,
-      required: true
+      required: false
     },
     affiliation: {
       type: String,
@@ -51,11 +51,11 @@ const userSchema = new Schema(
     },
     ethnicity: {
       type: String,
-      required: true
+      required: false
     },
     orientation: {
       type: String,
-      required: true
+      required: false
     },
     phone: {
       type: String,
@@ -63,7 +63,7 @@ const userSchema = new Schema(
     },
     gender: {
       type: String,
-      required: true
+      required: false
     },
     email: {
       type: String,

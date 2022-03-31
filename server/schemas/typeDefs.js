@@ -15,12 +15,12 @@ const typeDefs = gql`
   # declaring type User with it values
   type User {
     _id: ID
-    firstName: String!
-    lastName: String!
-    affiliation: String!
+    firstName: String
+    lastName: String
+    affiliation: String
     username: String!
     email: String!
-    phone: String!
+    phone: String
     starsGiven: String
     starsAssoc: String
     ethnicity: String
