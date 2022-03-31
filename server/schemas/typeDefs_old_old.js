@@ -15,21 +15,10 @@ const typeDefs = gql`
   # declaring type User with it values
   type User {
     _id: ID
-    firstName: String!
-    lastName: String!
-    affiliation: String!
     username: String!
     email: String!
-    phone: String!
-    starsGiven: String
-    starsAssoc: String
-    ethnicity: String
-    orientation: String
-    gender: String
-    createdAt: String
-    address: String
-    city: String
-    zip: String
+    bookCount: Int
+    savedBooks: [Book]
   }
   # declaring type Auth with it values
   type Auth {
@@ -49,7 +38,6 @@ const typeDefs = gql`
   type Query {
     me: User
   }
-  
   # declaring the mutation types
   type Mutation {
     login(email: String!, password: String!): Auth

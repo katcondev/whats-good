@@ -1,7 +1,8 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
+const dateFormat = require('../utils/dateFormat');
 
-// import schema from Book.js
+
 const bookSchema = require('./Book');
 
 const userSchema = new Schema(
@@ -10,6 +11,59 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: true,
+    },
+    firstName: {
+      type: String,
+      required: true
+    },
+    lastName: {
+      type: String,
+      required: true
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+      get: timestamp => dateFormat(timestamp)
+    },
+    address: {
+      type: String,
+      required: true
+    },
+    city: {
+      type: String,
+      required: true
+    },
+    zip: {
+      type: String,
+      required: true
+    },
+    starsGiven: {
+      type: String,
+      required: true
+    },
+    starsAssoc: {
+      type: String,
+      required: true
+    },
+    affiliation: {
+      type: String,
+      required: true
+    },
+    ethnicity: {
+      type: String,
+      required: true
+    },
+    orientation: {
+      type: String,
+      required: true
+    },
+    phone: {
+      type: String,
+      required: true
+    },
+    gender: {
+      type: String,
+      required: true
     },
     email: {
       type: String,
