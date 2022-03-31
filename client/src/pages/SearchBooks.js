@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Jumbotron, Container, Col, Form, Button, Card, CardColumns } from 'react-bootstrap';
 
 import logo from '../../src/assets/images/BROWN-LOGO.png'
-
+import Video from '../../src/assets/whats-good.mp4'
 import Auth from '../utils/auth';
 import { searchGoogleBooks, searchYelpBo } from '../utils/API';
 import { saveBookIds, getSavedBookIds } from '../utils/localStorage';
@@ -94,6 +94,9 @@ const SearchBooks = () => {
       <Jumbotron fluid className='text-light'>
         <Container>
           <img src={logo} style={{ width: "85%" }} />
+          
+          
+          
           <Form onSubmit={handleFormSubmit}>
             <Form.Row>
               <Col xs={12} md={8}>
@@ -103,7 +106,7 @@ const SearchBooks = () => {
                   onChange={(e) => setSearchInput(e.target.value)}
                   type='text'
                   size='lg'
-                  placeholder='Search for a book'
+                  placeholder='Search experiences'
                 />
               </Col>
               <Col xs={12} md={4}>

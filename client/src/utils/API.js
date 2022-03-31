@@ -7,7 +7,7 @@ var yelp = new Yelp({
   token_secret: 'token-secret',
 });
 
-yelp.business(${query2})
+yelp.business("blackowned")
   .then(console.log)
   .catch(console.error);
 
@@ -18,7 +18,7 @@ export const searchGoogleBooks = (query) => {
 };
 
 
-export const searchYelpBo = (query2) => {
-  return fetch(`https://api.yelp.com/v3/businesses/search?term=${query2}&latitude=37.786882&longitude=-122.399972`)
-}
+// export const searchYelpBo = (query2) => {
+//   return fetch(`https://api.yelp.com/v3/businesses/search?term=${query2}&latitude=37.786882&longitude=-122.399972`)
+// }
 
