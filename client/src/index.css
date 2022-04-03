@@ -22,6 +22,12 @@ h6 {
   background-color: #BF7256;
 }
 
+.btn-primary-lg {
+  background-color: #734136;
+  border-color:#734136;
+  color: #f2e9d8;
+}
+
 .btn-wg {
   background-color: #734136;
   border-color:#734136;
@@ -40,14 +46,15 @@ h6 {
   color: #f2e9d8;
 }
 
-.navbar-wg {
-  color: #734136
 
-}
 
 .navbar-light {
   color: #734136
 
+}
+
+.navbar p {
+  color: #734136;
 }
 
 .modal-content {
@@ -61,6 +68,12 @@ h6 {
 
 .modal-content a {
   color: #f2e9d8;
+}
+
+.modal-content .btn-success {
+  color: #fff;
+  background-color: #022873;
+  border-color: #022873;
 }
 
 .form-control {
