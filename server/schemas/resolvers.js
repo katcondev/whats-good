@@ -9,8 +9,9 @@ const { signToken } = require("../utils/auth");
 const resolvers = {
   Query: {
     me: async (parent, args, context) => {
-      if (context.user) {
-        const userData = await User.findOne({ _id: context.user._id }).select(
+     
+      if (context._id) {
+        const userData = await User.findOne({ _id: context._id }).select(
           "-__v -password"
         );
         return userData;
@@ -20,8 +21,7 @@ const resolvers = {
   },
   Mutation: {
     login: async (parent, { email, password }) => {
-      console.log('email', email);
-      console.log('password', password);
+      
       const user = await User.findOne({ email });
       // checking if user exists with email and credentials
       if (!user) {

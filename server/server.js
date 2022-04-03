@@ -1,6 +1,8 @@
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
+const User = require('./models/User')
+const Auth = require('./utils/auth')
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
@@ -11,12 +13,18 @@ const app = express();
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  context: ({ req }) => req.user,
 });
 
+
 server.applyMiddleware({ app });
+app.use(Auth.authMiddleware);
+
+
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
