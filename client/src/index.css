@@ -1,5 +1,6 @@
 body {
   font-family: 'Rubik', sans-serif;
+  background-color: #BF7256;
 }
 
 h1,
@@ -9,9 +10,74 @@ h4,
 h5,
 h6 {
   font-family: 'Rubik Mono One', sans-serif;
+  color: #d99771;
 }
 
 .small {
   font-weight: 300;
   font-style: italic;
+}
+
+.jumbotron {
+  background-color: #BF7256;
+}
+
+.btn-primary-lg {
+  background-color: #734136;
+  border-color:#734136;
+  color: #f2e9d8;
+}
+
+.btn-wg {
+  background-color: #734136;
+  border-color:#734136;
+  color: #f2e9d8;
+}
+
+.btn-wg:hover {
+  background-color: #022873;
+  border-color:#022873;
+  color: #f2e9d8;
+}
+
+.btn-wg:active {
+  background-color: #022873;
+  border-color:#022873;
+  color: #f2e9d8;
+}
+
+
+
+.navbar-light {
+  color: #734136
+
+}
+
+.navbar p {
+  color: #734136;
+}
+
+.modal-content {
+  background-color: #BF7256;
+}
+
+.modal-content .nav-pills .nav-link.active {
+  color: #f2e9d8;
+  background-color: #734136;
+}
+
+.modal-content a {
+  color: #f2e9d8;
+}
+
+.modal-content .btn-success {
+  color: #fff;
+  background-color: #022873;
+  border-color: #022873;
+}
+
+.form-control {
+  background-color: #f2e9d8;
+  color: #734136;
+  border:#734136 1px solid;
 }

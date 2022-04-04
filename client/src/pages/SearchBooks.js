@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Jumbotron, Container, Col, Form, Button, Card, CardColumns } from 'react-bootstrap';
 
+import logo from '../../src/assets/images/BROWN-LOGO.png'
 import Auth from '../utils/auth';
-import { saveBook, searchGoogleBooks } from '../utils/API';
+import { searchGoogleBooks, searchYelpBo } from '../utils/API';
 import { saveBookIds, getSavedBookIds } from '../utils/localStorage';
+import { SAVE_BOOK } from "../utils/mutations";
+import { useMutation } from "@apollo/client";
 
 const SearchBooks = () => {
   // create state for holding returned google api data
@@ -19,6 +22,9 @@ const SearchBooks = () => {
   useEffect(() => {
     return () => saveBookIds(savedBookIds);
   });
+
+  // added use mutation for the error and saveBook
+  const [saveBook] = useMutation(SAVE_BOOK);
 
   // create method to search for books and set state on form submit
   const handleFormSubmit = async (event) => {
@@ -65,7 +71,11 @@ const SearchBooks = () => {
     }
 
     try {
-      const response = await saveBook(bookToSave, token);
+      const response = await saveBook({
+        variables: { 
+          input: bookToSave,
+        },
+      });
 
       if (!response.ok) {
         throw new Error('something went wrong!');
@@ -80,9 +90,11 @@ const SearchBooks = () => {
 
   return (
     <>
-      <Jumbotron fluid className='text-light bg-dark'>
+      <Jumbotron fluid className='text-light'>
         <Container>
-          <h1>Search for Books!</h1>
+          <img src={logo} style={{ width: "85%" }} />
+          
+          
           <Form onSubmit={handleFormSubmit}>
             <Form.Row>
               <Col xs={12} md={8}>
@@ -92,11 +104,11 @@ const SearchBooks = () => {
                   onChange={(e) => setSearchInput(e.target.value)}
                   type='text'
                   size='lg'
-                  placeholder='Search for a book'
+                  placeholder='Search experiences'
                 />
               </Col>
               <Col xs={12} md={4}>
-                <Button type='submit' variant='success' size='lg'>
+                <Button type='submit' className='btn-wg' size='lg'>
                   Submit Search
                 </Button>
               </Col>
@@ -109,7 +121,7 @@ const SearchBooks = () => {
         <h2>
           {searchedBooks.length
             ? `Viewing ${searchedBooks.length} results:`
-            : 'Search for a book to begin'}
+            : '“WE NEED MORE LIGHT ABOUT EACH OTHER. LIGHT CREATES UNDERSTANDING, UNDERSTANDING CREATES LOVE, LOVE CREATES, PATIENCE, AND PATIENCE CREATES UNITY.” -Malcom X'}
         </h2>
         <CardColumns>
           {searchedBooks.map((book) => {
