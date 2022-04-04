@@ -26,7 +26,7 @@ no
 ## Questions
 email us at info@whats-good.com <br />
 <br />
-:octocat: Find me on GitHub: [katcontrerasdev mbelom](https://github.com/katcontrerasdev mbelom)<br />
+:octocat: Find me on GitHub: [katcontrerasdev mbelom](https://github.com/katcontrerasdev and https://github.com/mbelom)<br />
 <br />
 Email me with any questions: info@whats-good.com<br /><br />
 
