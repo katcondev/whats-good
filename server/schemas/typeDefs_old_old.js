@@ -49,7 +49,10 @@ const typeDefs = gql`
   type Query {
     me: User
   }
+<<<<<<< HEAD
   
+=======
+>>>>>>> feature/mergeDB
   # declaring the mutation types
   type Mutation {
     login(email: String!, password: String!): Auth

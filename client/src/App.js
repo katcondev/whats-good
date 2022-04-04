@@ -31,7 +31,7 @@ function App() {
     <ApolloProvider client={client}>
     <Router>
       <>
-        <Navbar />
+        <Navbar className='navbar-wg' />
         <Switch>
           <Route exact path='/' component={SearchBooks} />
           <Route exact path='/saved' component={SavedBooks} />
