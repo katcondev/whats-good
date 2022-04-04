@@ -16,15 +16,11 @@ const server = new ApolloServer({
   context: ({ req }) => req.user,
 });
 
-
 server.applyMiddleware({ app });
 app.use(Auth.authMiddleware);
 
-
-
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
