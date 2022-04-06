@@ -1,28 +1,15 @@
-// var Yelp = require('yelp');
-
-// var yelp = new Yelp({
-//   consumer_key: 'consumer-key',
-//   consumer_secret: 'consumer-secret',
-//   token: 'token',
-//   token_secret: 'token-secret',
-// });
-
-// yelp.business(query)
-//   .then(console.log)
-//   .catch(console.error);
-
-
-
-
-
-
- // https://www.googleapis.com/books/v1/volumes?q=harry+potter
 export const searchGoogleBooks = (query) => {
-  return fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}`);
+  return fetch(`https://api.yelp.com/v3/businesses/search?term=${query}&latitude=37.786882&longitude=-122.399972`, {
+    headers: {
+      Authorization: `Bearer ${process.env.REACT_APP_API_KEYYELP}`,
+      withCredentials: true,
+    }
+  });
 };
 
 
-// export const searchYelpBo = (query2) => {
-//   return yelp.business(query);
-// }
 
+
+// export const searchGoogleBooks = (query) => {
+//   return fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}`);
+// };
