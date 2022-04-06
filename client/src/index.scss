@@ -8,8 +8,13 @@ $primary-color: #BF7256;
 }
 
 @font-face {
-  font-family: 'Helvetica Neue';
+  font-family: 'Coolvetica';
   src: url('./assets/fonts/coolvetica.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'Helvetica Neue Med';
+  src: url('./assets/fonts/Helvetica-Neue-Medium-Extended.ttf') format('ttf');
 }
 
 input, 
@@ -22,7 +27,7 @@ html {
 }
 
 body {
-  font-family: 300 11px/1.4 'Helvetica Neue', 'sans-serif';
+  font: 600 16px/2.4 'Helvetica Neue', 'sans-serif';
   background-color: #BF7256;
   // overflow: hidden;
   display: block;
