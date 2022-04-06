@@ -91,10 +91,8 @@ const SearchBooks = () => {
   return (
     <>
       <Jumbotron fluid className='text-light'>
-        <Container>
+        <Container  >
           <img className='animate__animated animate__bounce' src={logo} style={{ width: "85%" }} />
-          
-          
           <Form onSubmit={handleFormSubmit}>
             <Form.Row>
               <Col xs={12} md={8}>
