@@ -92,7 +92,7 @@ const SearchBooks = () => {
     <>
       <Jumbotron fluid className='text-light'>
         <Container  >
-        <img className='animate__animated animate__bounce ' src={logo} style={{ width: "65%" }} />
+        
 
           <h1>search experiences</h1> <br></br>
           <Form onSubmit={handleFormSubmit}>
