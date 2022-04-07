@@ -92,17 +92,17 @@ const SearchBooks = () => {
     <>
       <Jumbotron fluid className='text-light'>
         <Container  >
-          <img className='animate__animated animate__bounce' src={logo} style={{ width: "85%" }} />
+          <h1>search experiences</h1> <br></br>
           <Form onSubmit={handleFormSubmit}>
             <Form.Row>
-              <Col xs={12} md={8}>
+              <Col className='mb-2' xs={12} md={8}>
                 <Form.Control
                   name='searchInput'
                   value={searchInput}
                   onChange={(e) => setSearchInput(e.target.value)}
                   type='text'
                   size='lg'
-                  placeholder='Search experiences'
+                  placeholder='Search unapologetic experiences'
                 />
               </Col>
               <Col xs={12} md={4}>
