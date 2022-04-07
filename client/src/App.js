@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
 import About from './components/About/index'
 import Navbar from './components/Menu';
 import Support from './components/Support'
@@ -35,16 +35,21 @@ function App() {
      <>
       <Navbar className='navbar-wg' />
       <Switch>
-        <Route>
+      <Route exact path="/">
+        <Redirect to="/About" />
+      </Route>
         <Route path="/search" component={Search} /> 
         <Route path="/About" component={About} /> 
         <Route path="/support" component={Support} /> 
-        </Route>
+        <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
+        
       </Switch>
     </>
    </Router>
     </ApolloProvider>
   );
 }
+
+
 
 export default App;
