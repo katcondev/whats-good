@@ -6,7 +6,7 @@ import './index.css'
 function About() {
   return (
     <div className='container'>
-        <img className='animate__animated animate__bounce ' src={logo} style={{ width: "65%" }} />
+        <img className='animate__animated animate__bounce mt-5' src={logo} style={{ width: "65%" }} />
         <h1 className='mt-5 mb-5'>An unapologetic experience</h1>
         <p className='mb-5' >Make the best choice in deciding where to invest your time and money with our Whats-Good mobileapp. It allows BIPOC clients to view and post 
           reviews about their experiences through the lenses of Black people. Our app is to bring awareness to Black peoples' experiences, whether they be 
