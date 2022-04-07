@@ -90,11 +90,9 @@ const SearchBooks = () => {
 
   return (
     <>
-      <Jumbotron fluid className='text-light'>
-        <Container  >
-        
-
-          <h1>search experiences</h1> <br></br>
+      
+        <Container className='container animate__animated animate__fadeIn'  >
+          <img className='mt-5 mb-5' src={logo} style={{ width: "85%" }} />
           <Form onSubmit={handleFormSubmit}>
             <Form.Row>
               <Col className='mb-2' xs={12} md={8}>
@@ -115,10 +113,10 @@ const SearchBooks = () => {
             </Form.Row>
           </Form>
         </Container>
-      </Jumbotron>
+      
 
-      <Container>
-        <h2 >
+      <Container className='container animate__animated animate__fadeIn'>
+        <h2 className='mt-5' >
           {searchedBooks.length
             ? `Viewing ${searchedBooks.length} results:`
             : '“WE NEED MORE LIGHT ABOUT EACH OTHER. LIGHT CREATES UNDERSTANDING, UNDERSTANDING CREATES LOVE, LOVE CREATES PATIENCE, AND PATIENCE CREATES UNITY.” -Malcom X'}

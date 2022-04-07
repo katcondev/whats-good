@@ -5,6 +5,7 @@ html {
 
 body {
   background-color: #BF7256;
+  color: #734136;
   display: block;
 }
 
@@ -15,7 +16,7 @@ h4,
 h5,
 h6 {
   color: #734136;
-  font-family: oswald;
+  font-family: oswald, Arial, Helvetica, sans-serif;
 }
 
 p {
