@@ -15,19 +15,19 @@ const AppNavbar = () => {
     <>
       <Navbar expand='lg'>
         <Container fluid>
-          <Navbar.Brand className='navbar-wg' as={Link} to='/' >
+          <Navbar.Brand className='navbar-wg' as={Link} to='/About' >
           <p>An Unapologetic Experience</p>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
             <Nav className='ml-auto'>
-              <Nav.Link as={Link} to='/'>
+              <Nav.Link as={Link} to='/About'>
                 About
               </Nav.Link>
-              <Nav.Link as={Link} to='/'>
-                Experiences
+              <Nav.Link as={Link} to='/search'>
+                Search
               </Nav.Link>
-              <Nav.Link as={Link} to='/'>
+              <Nav.Link as={Link} to='/Support'>
                 Support
               </Nav.Link>
               {/* if user is logged in show saved books and logout */}
