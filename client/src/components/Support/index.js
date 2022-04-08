@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../../assets/images/BROWN-LOGO.png'
+import logo from '../../assets/images/logowhatsgood_brown.svg'
 import { Form, Button, Alert } from 'react-bootstrap';
 
 const Support = () => {
