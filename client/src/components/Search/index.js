@@ -7,9 +7,8 @@ import Col from 'react-bootstrap/Col';
 function search() {
   return (
     <div className='container animate__animated animate__fadeIn'>
-    <Col sm={80} classname='m-auto'>
         <img className='mt-5' src={logo} style={{ width: "65%" }} />
-        <h1 className='mt-5 mb-5'>Search Experiences</h1></Col>
+        <h1 className='mt-5 mb-5'>Search Experiences</h1>
     <p className='mb-5' >Make the best choice in deciding where to invest your time and money with our Whats-Good mobileapp. It allows BIPOC clients to view and post 
       reviews about their experiences through the lenses of Black people. Our app is to bring awareness to Black peoples' experiences, whether they be 
       positive or negative. In doing so, other Black people and allies can be aware of businesses' ethics, customer service and more to ensure a beneficial 
