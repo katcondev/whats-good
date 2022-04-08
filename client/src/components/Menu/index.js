@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
-import SignUpForm from './SignupForm';
-import LoginForm from './LoginForm';
+import SignUpForm from '../SignupForm';
+import LoginForm from '../LoginForm';
+
+import './index.css'
 
 
-import Auth from '../utils/auth';
+import Auth from '../../utils/auth.js';
 
 const AppNavbar = () => {
   // set modal display state
@@ -13,16 +15,22 @@ const AppNavbar = () => {
 
   return (
     <>
-      <Navbar expand='lg'>
+      <Navbar expand='lg' className='navbar mt-5'>
         <Container fluid>
-          <Navbar.Brand className='navbar-wg' as={Link} to='/' >
-          <p>An Unapologetic Experience</p>
+          <Navbar.Brand as={Link} to='/About' >
+          <h4>An Unapologetic Experience</h4>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
             <Nav className='ml-auto'>
-              <Nav.Link as={Link} to='/'>
-                Search Experiences
+              <Nav.Link as={Link} to='/About'>
+                about
+              </Nav.Link>
+              <Nav.Link as={Link} to='/search'>
+                search
+              </Nav.Link>
+              <Nav.Link as={Link} to='/Support'>
+                support
               </Nav.Link>
               {/* if user is logged in show saved books and logout */}
               {Auth.loggedIn() ? (
@@ -33,7 +41,7 @@ const AppNavbar = () => {
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>
               ) : (
-                <Nav.Link onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
+                <Nav.Link onClick={() => setShowModal(true)}>login/sign Up</Nav.Link>
               )}
             </Nav>
           </Navbar.Collapse>

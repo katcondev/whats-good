@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Jumbotron, Container, Col, Form, Button, Card, CardColumns } from 'react-bootstrap';
 
-import logo from '../../src/assets/images/BROWN-LOGO.png'
+import logo from '../../src/assets/images/logowhatsgood_brown.svg'
 import Auth from '../utils/auth';
 import { searchGoogleBooks, searchYelpBo } from '../utils/API';
 import { saveBookIds, getSavedBookIds } from '../utils/localStorage';
@@ -90,21 +90,19 @@ const SearchBooks = () => {
 
   return (
     <>
-      <Jumbotron fluid className='text-light'>
-        <Container>
-          <img src={logo} style={{ width: "85%" }} />
-          
-          
+      
+        <Container className='container animate__animated animate__fadeIn'  >
+          <img className='mt-5 mb-5' src={logo} style={{ width: "85%" }} />
           <Form onSubmit={handleFormSubmit}>
             <Form.Row>
-              <Col xs={12} md={8}>
+              <Col className='mb-2' xs={12} md={8}>
                 <Form.Control
                   name='searchInput'
                   value={searchInput}
                   onChange={(e) => setSearchInput(e.target.value)}
                   type='text'
                   size='lg'
-                  placeholder='Search experiences'
+                  placeholder='Search unapologetic experiences'
                 />
               </Col>
               <Col xs={12} md={4}>
@@ -115,13 +113,13 @@ const SearchBooks = () => {
             </Form.Row>
           </Form>
         </Container>
-      </Jumbotron>
+      
 
-      <Container>
-        <h2>
+      <Container className='container animate__animated animate__fadeIn'>
+        <h2 className='mt-5' >
           {searchedBooks.length
             ? `Viewing ${searchedBooks.length} results:`
-            : '“WE NEED MORE LIGHT ABOUT EACH OTHER. LIGHT CREATES UNDERSTANDING, UNDERSTANDING CREATES LOVE, LOVE CREATES, PATIENCE, AND PATIENCE CREATES UNITY.” -Malcom X'}
+            : '“WE NEED MORE LIGHT ABOUT EACH OTHER. LIGHT CREATES UNDERSTANDING, UNDERSTANDING CREATES LOVE, LOVE CREATES PATIENCE, AND PATIENCE CREATES UNITY.” -Malcom X'}
         </h2>
         <CardColumns>
           {searchedBooks.map((book) => {

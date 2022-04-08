@@ -1,10 +1,14 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import SearchBooks from './pages/SearchBooks';
-import SavedBooks from './pages/SavedBooks';
-import Navbar from './components/Navbar';
+import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
+import About from './components/About/index'
+import Navbar from './components/Menu';
+import Support from './components/Support';
+// import oldSearch from './pages/SearchBooks'
+import Search from './components/Search'
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import './App.scss'
+import Footer from './components/Footer';
 
 
 const httpLink = createHttpLink({
@@ -29,18 +33,26 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-    <Router>
-      <>
-        <Navbar className='navbar-wg' />
-        <Switch>
-          <Route exact path='/' component={SearchBooks} />
-          <Route exact path='/saved' component={SavedBooks} />
-          <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
-        </Switch>
-      </>
-    </Router>
+  <Router>
+     <>
+      <Navbar className='navbar-wg' />
+      <Switch>
+      <Route exact path="/">
+        <Redirect to="/About" />
+      </Route>
+        <Route path="/Search" component={Search} /> 
+        <Route path="/About" component={About} /> 
+        <Route path="/support" component={Support} /> 
+        <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
+        
+      </Switch>
+      <Footer></Footer>
+    </>
+   </Router>
     </ApolloProvider>
   );
 }
+
+
 
 export default App;

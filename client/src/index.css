@@ -1,6 +1,20 @@
+
+html {
+  font-size: 82.5%;
+}
+
 body {
-  font-family: 'Rubik', sans-serif;
   background-color: #BF7256;
+  color: #734136;
+  display: block;
+  min-height: 85vh;
+}
+
+footer {
+  position:absolute;
+  left:0;
+  bottom:0;
+  right:0;
 }
 
 h1,
@@ -9,8 +23,14 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Rubik Mono One', sans-serif;
-  color: #d99771;
+  color: #734136;
+  font-family: oswald, Arial, Helvetica, sans-serif;
+}
+
+p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color: #734136;
 }
 
 .small {
@@ -46,16 +66,6 @@ h6 {
   color: #f2e9d8;
 }
 
-
-
-.navbar-light {
-  color: #734136
-
-}
-
-.navbar p {
-  color: #734136;
-}
 
 .modal-content {
   background-color: #BF7256;
