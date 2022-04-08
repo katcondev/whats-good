@@ -7,6 +7,14 @@ body {
   background-color: #BF7256;
   color: #734136;
   display: block;
+  min-height: 85vh;
+}
+
+footer {
+  position:absolute;
+  left:0;
+  bottom:0;
+  right:0;
 }
 
 h1,
@@ -21,7 +29,7 @@ h6 {
 
 p {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   color: #734136;
 }
 

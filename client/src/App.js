@@ -2,11 +2,13 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
 import About from './components/About/index'
 import Navbar from './components/Menu';
-import Support from './components/Support'
-import Search from './pages/SearchBooks'
+import Support from './components/Support';
+// import oldSearch from './pages/SearchBooks'
+import Search from './components/Search'
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import './App.scss'
+import Footer from './components/Footer';
 
 
 const httpLink = createHttpLink({
@@ -38,12 +40,13 @@ function App() {
       <Route exact path="/">
         <Redirect to="/About" />
       </Route>
-        <Route path="/search" component={Search} /> 
+        <Route path="/Search" component={Search} /> 
         <Route path="/About" component={About} /> 
         <Route path="/support" component={Support} /> 
         <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
         
       </Switch>
+      <Footer></Footer>
     </>
    </Router>
     </ApolloProvider>
