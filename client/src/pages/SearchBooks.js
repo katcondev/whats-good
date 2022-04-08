@@ -90,19 +90,19 @@ const SearchBooks = () => {
 
   return (
     <>
-      <Jumbotron fluid className='text-light'>
-        <Container  >
-          <img className='animate__animated animate__bounce' src={logo} style={{ width: "85%" }} />
+      
+        <Container className='container animate__animated animate__fadeIn'  >
+          <img className='mt-5 mb-5' src={logo} style={{ width: "85%" }} />
           <Form onSubmit={handleFormSubmit}>
             <Form.Row>
-              <Col xs={12} md={8}>
+              <Col className='mb-2' xs={12} md={8}>
                 <Form.Control
                   name='searchInput'
                   value={searchInput}
                   onChange={(e) => setSearchInput(e.target.value)}
                   type='text'
                   size='lg'
-                  placeholder='Search experiences'
+                  placeholder='Search unapologetic experiences'
                 />
               </Col>
               <Col xs={12} md={4}>
@@ -113,10 +113,10 @@ const SearchBooks = () => {
             </Form.Row>
           </Form>
         </Container>
-      </Jumbotron>
+      
 
-      <Container>
-        <h2 >
+      <Container className='container animate__animated animate__fadeIn'>
+        <h2 className='mt-5' >
           {searchedBooks.length
             ? `Viewing ${searchedBooks.length} results:`
             : '“WE NEED MORE LIGHT ABOUT EACH OTHER. LIGHT CREATES UNDERSTANDING, UNDERSTANDING CREATES LOVE, LOVE CREATES PATIENCE, AND PATIENCE CREATES UNITY.” -Malcom X'}
