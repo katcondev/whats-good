@@ -15,10 +15,10 @@ const AppNavbar = () => {
 
   return (
     <>
-      <Navbar expand='lg' className='navbar'>
+      <Navbar expand='lg' className='navbar mt-5'>
         <Container fluid>
           <Navbar.Brand as={Link} to='/About' >
-          <h4>An Unapologetic Experience</h4>
+          <h2>An Unapologetic Experience</h2>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
