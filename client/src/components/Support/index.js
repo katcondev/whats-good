@@ -32,7 +32,7 @@ const Support = () => {
             type='submit'
             variant='success'
             className='btn-wg'>
-            Submit
+            SUBMIT
           </Button>
         </Form>
       </container>
