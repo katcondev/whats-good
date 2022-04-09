@@ -1,23 +1,41 @@
 import React from 'react';
-import logo from '../../assets/images/logowhatsgood_brown.svg'
+import cupcake from '../../assets/images/eat-cup.png'
 import { Link } from 'react-router-dom';
 import './index.css'
-import Col from 'react-bootstrap/Col';
+
+import { Jumbotron, Container, Col, Form, Button, Card, CardColumns } from 'react-bootstrap';
 
 function search() {
   return (
-    <div className='container animate__animated animate__fadeIn'>
-        <img className='mt-5' src={logo} style={{ width: "65%" }} />
-        <h1 className='mt-5 mb-5'>Search Experiences</h1>
-    <p className='mb-5' >Make the best choice in deciding where to invest your time and money with our Whats-Good mobileapp. It allows BIPOC clients to view and post 
-      reviews about their experiences through the lenses of Black people. Our app is to bring awareness to Black peoples' experiences, whether they be 
-      positive or negative. In doing so, other Black people and allies can be aware of businesses' ethics, customer service and more to ensure a beneficial 
-      experience overall. <br></br><br></br>Whats-Good mobile app is designed with tools to give Black people foresight into what type of businesses they are will
-       giving their resources to more confidently.</p>
+    <div className='container animate__animated animate__fadeIn mb-5'>
+     <h2 className='mt-5 mb-5'>
+    “WE NEED MORE LIGHT ABOUT EACH OTHER. LIGHT CREATES UNDERSTANDING, UNDERSTANDING CREATES LOVE, LOVE CREATES PATIENCE, AND PATIENCE CREATES UNITY.” -Malcom X
+    </h2>
+       <Form className='mb-5' >
+            <Form.Row className='mb-5'>
+              <Col className='mb-2' xs={12} md={8}>
+              <input name="searchInput" placeholder="search unapologetic experiences" type="text" class="form-control form-control-lg" value=""></input>
+              </Col>
+              <Col xs={12} md={4}>
+                <Button type='submit' className='btn-wg btn'>
+                  SEARCH
+                </Button>
+              </Col>
+           </Form.Row>
+         </Form>
     
-</div>
+        <footer><img className='mt-5' src={cupcake} style={{ width: "65%" }} /></footer> 
+    </div>
+
+
+
+
 
   )
 }
 
 export default search
+
+
+
+

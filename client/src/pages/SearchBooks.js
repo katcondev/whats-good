@@ -92,7 +92,7 @@ const SearchBooks = () => {
     <>
       
         <Container className='container animate__animated animate__fadeIn'  >
-          <img className='mt-5 mb-5' src={logo} style={{ width: "85%" }} />
+          <img className='mt-5 mb-5' src={logo} style={{ width: "65%" }} />
           <Form onSubmit={handleFormSubmit}>
             <Form.Row>
               <Col className='mb-2' xs={12} md={8}>
@@ -102,12 +102,12 @@ const SearchBooks = () => {
                   onChange={(e) => setSearchInput(e.target.value)}
                   type='text'
                   size='lg'
-                  placeholder='Search unapologetic experiences'
+                  placeholder='search unapologetic experiences'
                 />
               </Col>
               <Col xs={12} md={4}>
-                <Button type='submit' className='btn-wg' size='lg'>
-                  Submit Search
+                <Button type='submit' className='btn-wg btn'>
+                  SEARCH
                 </Button>
               </Col>
             </Form.Row>

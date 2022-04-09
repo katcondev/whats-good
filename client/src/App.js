@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-ro
 import About from './components/About/index'
 import Navbar from './components/Menu';
 import Support from './components/Support';
-// import oldSearch from './pages/SearchBooks'
+import Old from './pages/SearchBooks'
 import Search from './components/Search'
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
@@ -41,8 +41,9 @@ function App() {
         <Redirect to="/About" />
       </Route>
         <Route path="/Search" component={Search} /> 
+        <Route path="/Old" component={Old} /> 
         <Route path="/About" component={About} /> 
-        <Route path="/support" component={Support} /> 
+        <Route path="/Support" component={Support} /> 
         <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
         
       </Switch>

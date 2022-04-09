@@ -7,7 +7,7 @@ body {
   background-color: #BF7256;
   color: #734136;
   display: block;
-  min-height: 85vh;
+  min-height: 100vh;
 }
 
 footer {
@@ -64,6 +64,12 @@ p {
   background-color: #022873;
   border-color:#022873;
   color: #f2e9d8;
+}
+
+.btn-primary:disabled {
+  color: #fff;
+  background-color: #022873;
+  border-color: #022873;
 }
 
 

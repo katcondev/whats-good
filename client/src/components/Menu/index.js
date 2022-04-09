@@ -29,6 +29,7 @@ const AppNavbar = () => {
               <Nav.Link as={Link} to='/search'>
                 search
               </Nav.Link>
+              
               <Nav.Link as={Link} to='/Support'>
                 support
               </Nav.Link>
@@ -36,9 +37,9 @@ const AppNavbar = () => {
               {Auth.loggedIn() ? (
                 <>
                   <Nav.Link as={Link} to='/saved'>
-                    See Your Experiences
+                    your experiences
                   </Nav.Link>
-                  <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
+                  <Nav.Link onClick={Auth.logout}>logout</Nav.Link>
                 </>
               ) : (
                 <Nav.Link onClick={() => setShowModal(true)}>login/sign Up</Nav.Link>
