@@ -1,7 +1,6 @@
 import React from 'react'
 import logo from '../../assets/images/logowhatsgood_brown.svg'
-import { Form, Button, Alert } from 'react-bootstrap';
-import Col from 'react-bootstrap/Col';
+import { Form, Button, Alert, Col } from 'react-bootstrap';
 import './index.css'
 
 const Support = () => {
