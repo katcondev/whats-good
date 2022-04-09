@@ -3,30 +3,30 @@ import { Jumbotron, Container, Col, Form, Button, Card, CardColumns } from 'reac
 
 import logo from '../../src/assets/images/logowhatsgood_brown.svg'
 import Auth from '../utils/auth';
-import { searchGoogleBooks, searchYelpBo } from '../utils/API';
-import { saveBookIds, getSavedBookIds } from '../utils/localStorage';
+import { searchBusinesses} from '../utils/API';
+import { saveBusinessIds, getSavedBusinessIds } from '../utils/localStorage';
 import { SAVE_BOOK } from "../utils/mutations";
 import { useMutation } from "@apollo/client";
 
-const SearchBooks = () => {
+const SearchBusinesses = () => {
   // create state for holding returned google api data
-  const [searchedBooks, setSearchedBooks] = useState([]);
+  const [searchedBusinesses, setSearchedBusinesses] = useState([]);
   // create state for holding our search field data
   const [searchInput, setSearchInput] = useState('');
 
-  // create state to hold saved bookId values
-  const [savedBookIds, setSavedBookIds] = useState(getSavedBookIds());
+  // create state to hold saved businessId values
+  const [savedBusinessIds, setSavedBusinessIds] = useState(getSavedBusinessIds());
 
-  // set up useEffect hook to save `savedBookIds` list to localStorage on component unmount
+  // set up useEffect hook to save `savedBusinessIds` list to localStorage on component unmount
   // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
   useEffect(() => {
-    return () => saveBookIds(savedBookIds);
+    return () => saveBusinessIds(savedBusinessIds);
   });
 
   // added use mutation for the error and saveBook
   const [saveBook] = useMutation(SAVE_BOOK);
 
-  // create method to search for books and set state on form submit
+  // create method to search for Businesses and set state on form submit
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -35,7 +35,7 @@ const SearchBooks = () => {
     }
 
     try {
-      const response = await searchGoogleBooks(searchInput);
+      const response = await searchBusinesses(searchInput);
 
       if (!response.ok) {
         throw new Error('something went wrong!');
@@ -43,15 +43,15 @@ const SearchBooks = () => {
 
       const { items } = await response.json();
 
-      const bookData = items.map((book) => ({
-        bookId: book.id,
-        authors: book.volumeInfo.authors || ['No author to display'],
-        title: book.volumeInfo.title,
-        description: book.volumeInfo.description,
-        image: book.volumeInfo.imageLinks?.thumbnail || '',
+      const bookData = items.map((businesses) => ({
+        businessId: businesses.id,
+        authors: businesses.name || ['No author to display'],
+        title: businesses.alias,
+        description: businesses.city,
+        image: businesses.image_url || '',
       }));
 
-      setSearchedBooks(bookData);
+      setSearchedBusinesses(bookData);
       setSearchInput('');
     } catch (err) {
       console.error(err);
@@ -59,9 +59,9 @@ const SearchBooks = () => {
   };
 
   // create function to handle saving a book to our database
-  const handleSaveBook = async (bookId) => {
-    // find the book in `searchedBooks` state by the matching id
-    const bookToSave = searchedBooks.find((book) => book.bookId === bookId);
+  const handleSaveBook = async (businessId) => {
+    // find the book in `searchedBusinesses` state by the matching id
+    const bookToSave = searchedBusinesses.find((book) => book.businessId === businessId);
 
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -82,7 +82,7 @@ const SearchBooks = () => {
       }
 
       // if book successfully saves to user's account, save book id to state
-      setSavedBookIds([...savedBookIds, bookToSave.bookId]);
+      setSavedBusinessIds([...savedBusinessIds, bookToSave.businessId]);
     } catch (err) {
       console.error(err);
     }
@@ -117,14 +117,14 @@ const SearchBooks = () => {
 
       <Container className='container animate__animated animate__fadeIn'>
         <h2 className='mt-5' >
-          {searchedBooks.length
-            ? `Viewing ${searchedBooks.length} results:`
+          {searchedBusinesses.length
+            ? `Viewing ${searchedBusinesses.length} results:`
             : '“WE NEED MORE LIGHT ABOUT EACH OTHER. LIGHT CREATES UNDERSTANDING, UNDERSTANDING CREATES LOVE, LOVE CREATES PATIENCE, AND PATIENCE CREATES UNITY.” -Malcom X'}
         </h2>
         <CardColumns>
-          {searchedBooks.map((book) => {
+          {searchedBusinesses.map((book) => {
             return (
-              <Card key={book.bookId} border='dark'>
+              <Card key={book.businessId} border='dark'>
                 {book.image ? (
                   <Card.Img src={book.image} alt={`The cover for ${book.title}`} variant='top' />
                 ) : null}
@@ -134,10 +134,10 @@ const SearchBooks = () => {
                   <Card.Text>{book.description}</Card.Text>
                   {Auth.loggedIn() && (
                     <Button
-                      disabled={savedBookIds?.some((savedBookId) => savedBookId === book.bookId)}
+                      disabled={savedBusinessIds?.some((savedbusinessId) => savedbusinessId === book.businessId)}
                       className='btn-block btn-info'
-                      onClick={() => handleSaveBook(book.bookId)}>
-                      {savedBookIds?.some((savedBookId) => savedBookId === book.bookId)
+                      onClick={() => handleSaveBook(book.businessId)}>
+                      {savedBusinessIds?.some((savedbusinessId) => savedbusinessId === book.businessId)
                         ? 'This book has already been saved!'
                         : 'Save this Book!'}
                     </Button>
@@ -152,4 +152,4 @@ const SearchBooks = () => {
   );
 };
 
-export default SearchBooks;
+export default SearchBusinesses;

@@ -11,9 +11,8 @@ body {
 }
 
 footer {
-  position:absolute;
+  position:fixed;
   left:0;
-  top: 10;
   bottom:0;
   right:0;
 }
@@ -72,7 +71,6 @@ p {
   background-color: #022873;
   border-color: #022873;
 }
-
 
 .modal-content {
   background-color: #BF7256;

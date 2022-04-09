@@ -15,7 +15,7 @@ const AppNavbar = () => {
 
   return (
     <>
-      <Navbar expand='lg' className='navbar mt-5'>
+      <Navbar expand='lg' className='navbar mt-1'>
         <Container fluid>
           <Navbar.Brand as={Link} to='/About' >
           <h4>An Unapologetic Experience</h4>
