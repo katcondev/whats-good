@@ -5,11 +5,11 @@ import logo from '../../src/assets/images/logowhatsgood_brown.svg'
 import Auth from '../utils/auth';
 import { searchBusinesses} from '../utils/API';
 import { saveBusinessIds, getSavedBusinessIds } from '../utils/localStorage';
-import { SAVE_BOOK } from "../utils/mutations";
+import { SAVE_BUSINESS } from "../utils/mutations";
 import { useMutation } from "@apollo/client";
 
 const SearchBusinesses = () => {
-  // create state for holding returned google api data
+  // create state for holding returned yelp api data
   const [searchedBusinesses, setSearchedBusinesses] = useState([]);
   // create state for holding our search field data
   const [searchInput, setSearchInput] = useState('');
@@ -23,8 +23,8 @@ const SearchBusinesses = () => {
     return () => saveBusinessIds(savedBusinessIds);
   });
 
-  // added use mutation for the error and saveBook
-  const [saveBook] = useMutation(SAVE_BOOK);
+  // added use mutation for the error and savebusiness
+  const [saveBusiness] = useMutation(SAVE_BUSINESS);
 
   // create method to search for Businesses and set state on form submit
   const handleFormSubmit = async (event) => {
@@ -43,7 +43,7 @@ const SearchBusinesses = () => {
 
       const { items } = await response.json();
 
-      const bookData = items.map((businesses) => ({
+      const businessData = items.map((businesses) => ({
         businessId: businesses.id,
         authors: businesses.name || ['No author to display'],
         title: businesses.alias,
@@ -51,17 +51,17 @@ const SearchBusinesses = () => {
         image: businesses.image_url || '',
       }));
 
-      setSearchedBusinesses(bookData);
+      setSearchedBusinesses(businessData);
       setSearchInput('');
     } catch (err) {
       console.error(err);
     }
   };
 
-  // create function to handle saving a book to our database
-  const handleSaveBook = async (businessId) => {
-    // find the book in `searchedBusinesses` state by the matching id
-    const bookToSave = searchedBusinesses.find((book) => book.businessId === businessId);
+  // create function to handle saving a business to our database
+  const handleSaveBusiness = async (businessId) => {
+    // find the business in `searchedBusinesses` state by the matching id
+    const businessToSave = searchedBusinesses.find((businesses) => businesses.businessId === businessId);
 
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -71,9 +71,9 @@ const SearchBusinesses = () => {
     }
 
     try {
-      const response = await saveBook({
+      const response = await saveBusiness({
         variables: { 
-          input: bookToSave,
+          input: businessToSave,
         },
       });
 
@@ -81,8 +81,8 @@ const SearchBusinesses = () => {
         throw new Error('something went wrong!');
       }
 
-      // if book successfully saves to user's account, save book id to state
-      setSavedBusinessIds([...savedBusinessIds, bookToSave.businessId]);
+      // if business successfully saves to user's account, save business id to state
+      setSavedBusinessIds([...savedBusinessIds, businessToSave.businessId]);
     } catch (err) {
       console.error(err);
     }
@@ -122,24 +122,24 @@ const SearchBusinesses = () => {
             : '“WE NEED MORE LIGHT ABOUT EACH OTHER. LIGHT CREATES UNDERSTANDING, UNDERSTANDING CREATES LOVE, LOVE CREATES PATIENCE, AND PATIENCE CREATES UNITY.” -Malcom X'}
         </h2>
         <CardColumns>
-          {searchedBusinesses.map((book) => {
+          {searchedBusinesses.map((businesses) => {
             return (
-              <Card key={book.businessId} border='dark'>
-                {book.image ? (
-                  <Card.Img src={book.image} alt={`The cover for ${book.title}`} variant='top' />
+              <Card key={businesses.businessId} border='dark'>
+                {businesses.image ? (
+                  <Card.Img src={businesses.image} alt={`The cover for ${businesses.title}`} variant='top' />
                 ) : null}
                 <Card.Body>
-                  <Card.Title>{book.title}</Card.Title>
-                  <p className='small'>Authors: {book.authors}</p>
-                  <Card.Text>{book.description}</Card.Text>
+                  <Card.Title>{businesses.title}</Card.Title>
+                  <p className='small'>Authors: {businesses.authors}</p>
+                  <Card.Text>{businesses.description}</Card.Text>
                   {Auth.loggedIn() && (
                     <Button
-                      disabled={savedBusinessIds?.some((savedbusinessId) => savedbusinessId === book.businessId)}
+                      disabled={savedBusinessIds?.some((savedbusinessId) => savedbusinessId === businesses.businessId)}
                       className='btn-block btn-info'
-                      onClick={() => handleSaveBook(book.businessId)}>
-                      {savedBusinessIds?.some((savedbusinessId) => savedbusinessId === book.businessId)
-                        ? 'This book has already been saved!'
-                        : 'Save this Book!'}
+                      onClick={() => handleSaveBusiness(businesses.businessId)}>
+                      {savedBusinessIds?.some((savedbusinessId) => savedbusinessId === businesses.businessId)
+                        ? 'This business has already been saved!'
+                        : 'Save this Business!'}
                     </Button>
                   )}
                 </Card.Body>

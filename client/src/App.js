@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-ro
 import About from './components/About/index'
 import Navbar from './components/Menu';
 import Support from './components/Support';
-import Old from './pages/SearchBooks'
+import Old from './pages/SearchBusinesses'
 import Search from './components/Search'
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
