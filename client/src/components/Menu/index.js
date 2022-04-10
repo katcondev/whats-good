@@ -33,7 +33,7 @@ const AppNavbar = () => {
               <Nav.Link as={Link} to='/Support'>
                 support
               </Nav.Link>
-              {/* if user is logged in show saved books and logout */}
+              {/* if user is logged in show saved business and logout */}
               {Auth.loggedIn() ? (
                 <>
                   <Nav.Link as={Link} to='/saved'>

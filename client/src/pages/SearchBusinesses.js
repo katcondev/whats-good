@@ -125,13 +125,13 @@ const SearchBusinesses = () => {
           {searchedBusinesses.map((businesses) => {
             return (
               <Card key={businesses.businessId} border='dark'>
-                {businesses.image ? (
-                  <Card.Img src={businesses.image} alt={`The cover for ${businesses.title}`} variant='top' />
+                {businesses.image_url ? (
+                  <Card.Img src={businesses.image_url} alt={`The cover for ${businesses.alias}`} variant='top' />
                 ) : null}
                 <Card.Body>
-                  <Card.Title>{businesses.title}</Card.Title>
-                  <p className='small'>Authors: {businesses.authors}</p>
-                  <Card.Text>{businesses.description}</Card.Text>
+                  <Card.Title>{businesses.alias}</Card.Title>
+                  <p className='small'>Authors: {businesses.name}</p>
+                  <Card.Text>{businesses.city}</Card.Text>
                   {Auth.loggedIn() && (
                     <Button
                       disabled={savedBusinessIds?.some((savedbusinessId) => savedbusinessId === businesses.businessId)}
