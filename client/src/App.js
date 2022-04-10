@@ -9,7 +9,7 @@ import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@ap
 import { setContext } from '@apollo/client/link/context';
 import './App.scss'
 import Footer from './components/Footer';
-
+import PersonList from './components/PersonList';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -47,6 +47,7 @@ function App() {
         <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
         
       </Switch>
+      <PersonList/>
       <Footer></Footer>
     </>
    </Router>

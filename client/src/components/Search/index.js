@@ -8,7 +8,7 @@ import { Jumbotron, Container, Col, Form, Button, Card, CardColumns } from 'reac
 function search() {
   return (
     <div className='container animate__animated animate__fadeIn mb-5'>
-     <Col sm={80} classname='m-auto'>
+     <Col sm={80} className='m-auto'>
         <h1 className='mt-5 mb-5'>search experiences</h1></Col>
        <Form className='mb-5' >
             <Form.Row className='mb-5'>
