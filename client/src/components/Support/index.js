@@ -1,13 +1,12 @@
 import React from 'react'
 import logo from '../../assets/images/logowhatsgood_brown.svg'
-import { Form, Button, Alert } from 'react-bootstrap';
-import Col from 'react-bootstrap/Col';
+import { Form, Button, Alert, Col } from 'react-bootstrap';
 import './index.css'
 
 const Support = () => {
   return (
     <><div className='container animate__animated animate__fadeIn mb-5'>
-      <Col sm={80} classname='m-auto'>
+      <Col sm={80} className='m-auto'>
         <h1 className='mt-5 mb-5'>Support Our Work</h1></Col>
 
       <p>Make the best choice in deciding where to invest your time and money with our Whats-Good mobileapp.

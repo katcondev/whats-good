@@ -3,30 +3,30 @@ import { Jumbotron, Container, Col, Form, Button, Card, CardColumns } from 'reac
 
 import logo from '../../src/assets/images/logowhatsgood_brown.svg'
 import Auth from '../utils/auth';
-import { searchGoogleBooks, searchYelpBo } from '../utils/API';
-import { saveBookIds, getSavedBookIds } from '../utils/localStorage';
-import { SAVE_BOOK } from "../utils/mutations";
+import { searchBusinesses} from '../utils/API';
+import { saveBusinessIds, getSavedBusinessIds } from '../utils/localStorage';
+import { SAVE_BUSINESS } from "../utils/mutations";
 import { useMutation } from "@apollo/client";
 
-const SearchBooks = () => {
-  // create state for holding returned google api data
-  const [searchedBooks, setSearchedBooks] = useState([]);
+const SearchBusinesses = () => {
+  // create state for holding returned yelp api data
+  const [searchedBusinesses, setSearchedBusinesses] = useState([]);
   // create state for holding our search field data
   const [searchInput, setSearchInput] = useState('');
 
-  // create state to hold saved bookId values
-  const [savedBookIds, setSavedBookIds] = useState(getSavedBookIds());
+  // create state to hold saved businessId values
+  const [savedBusinessIds, setSavedBusinessIds] = useState(getSavedBusinessIds());
 
-  // set up useEffect hook to save `savedBookIds` list to localStorage on component unmount
+  // set up useEffect hook to save `savedBusinessIds` list to localStorage on component unmount
   // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
   useEffect(() => {
-    return () => saveBookIds(savedBookIds);
+    return () => saveBusinessIds(savedBusinessIds);
   });
 
-  // added use mutation for the error and saveBook
-  const [saveBook] = useMutation(SAVE_BOOK);
+  // added use mutation for the error and savebusiness
+  const [saveBusiness] = useMutation(SAVE_BUSINESS);
 
-  // create method to search for books and set state on form submit
+  // create method to search for Businesses and set state on form submit
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -35,7 +35,7 @@ const SearchBooks = () => {
     }
 
     try {
-      const response = await searchGoogleBooks(searchInput);
+      const response = await searchBusinesses(searchInput);
 
       if (!response.ok) {
         throw new Error('something went wrong!');
@@ -43,25 +43,25 @@ const SearchBooks = () => {
 
       const { items } = await response.json();
 
-      const bookData = items.map((book) => ({
-        bookId: book.id,
-        authors: book.volumeInfo.authors || ['No author to display'],
-        title: book.volumeInfo.title,
-        description: book.volumeInfo.description,
-        image: book.volumeInfo.imageLinks?.thumbnail || '',
+      const businessData = items.map((businesses) => ({
+        businessId: businesses.id,
+        authors: businesses.name || ['No author to display'],
+        title: businesses.alias,
+        description: businesses.city,
+        image: businesses.image_url || '',
       }));
 
-      setSearchedBooks(bookData);
+      setSearchedBusinesses(businessData);
       setSearchInput('');
     } catch (err) {
       console.error(err);
     }
   };
 
-  // create function to handle saving a book to our database
-  const handleSaveBook = async (bookId) => {
-    // find the book in `searchedBooks` state by the matching id
-    const bookToSave = searchedBooks.find((book) => book.bookId === bookId);
+  // create function to handle saving a business to our database
+  const handleSaveBusiness = async (businessId) => {
+    // find the business in `searchedBusinesses` state by the matching id
+    const businessToSave = searchedBusinesses.find((businesses) => businesses.businessId === businessId);
 
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -71,9 +71,9 @@ const SearchBooks = () => {
     }
 
     try {
-      const response = await saveBook({
+      const response = await saveBusiness({
         variables: { 
-          input: bookToSave,
+          input: businessToSave,
         },
       });
 
@@ -81,8 +81,8 @@ const SearchBooks = () => {
         throw new Error('something went wrong!');
       }
 
-      // if book successfully saves to user's account, save book id to state
-      setSavedBookIds([...savedBookIds, bookToSave.bookId]);
+      // if business successfully saves to user's account, save business id to state
+      setSavedBusinessIds([...savedBusinessIds, businessToSave.businessId]);
     } catch (err) {
       console.error(err);
     }
@@ -117,29 +117,29 @@ const SearchBooks = () => {
 
       <Container className='container animate__animated animate__fadeIn'>
         <h2 className='mt-5' >
-          {searchedBooks.length
-            ? `Viewing ${searchedBooks.length} results:`
+          {searchedBusinesses.length
+            ? `Viewing ${searchedBusinesses.length} results:`
             : '“WE NEED MORE LIGHT ABOUT EACH OTHER. LIGHT CREATES UNDERSTANDING, UNDERSTANDING CREATES LOVE, LOVE CREATES PATIENCE, AND PATIENCE CREATES UNITY.” -Malcom X'}
         </h2>
         <CardColumns>
-          {searchedBooks.map((book) => {
+          {searchedBusinesses.map((businesses) => {
             return (
-              <Card key={book.bookId} border='dark'>
-                {book.image ? (
-                  <Card.Img src={book.image} alt={`The cover for ${book.title}`} variant='top' />
+              <Card key={businesses.businessId} border='dark'>
+                {businesses.image_url ? (
+                  <Card.Img src={businesses.image_url} alt={`The cover for ${businesses.alias}`} variant='top' />
                 ) : null}
                 <Card.Body>
-                  <Card.Title>{book.title}</Card.Title>
-                  <p className='small'>Authors: {book.authors}</p>
-                  <Card.Text>{book.description}</Card.Text>
+                  <Card.Title>{businesses.alias}</Card.Title>
+                  <p className='small'>Authors: {businesses.name}</p>
+                  <Card.Text>{businesses.city}</Card.Text>
                   {Auth.loggedIn() && (
                     <Button
-                      disabled={savedBookIds?.some((savedBookId) => savedBookId === book.bookId)}
+                      disabled={savedBusinessIds?.some((savedbusinessId) => savedbusinessId === businesses.businessId)}
                       className='btn-block btn-info'
-                      onClick={() => handleSaveBook(book.bookId)}>
-                      {savedBookIds?.some((savedBookId) => savedBookId === book.bookId)
-                        ? 'This book has already been saved!'
-                        : 'Save this Book!'}
+                      onClick={() => handleSaveBusiness(businesses.businessId)}>
+                      {savedBusinessIds?.some((savedbusinessId) => savedbusinessId === businesses.businessId)
+                        ? 'This business has already been saved!'
+                        : 'Save this Business!'}
                     </Button>
                   )}
                 </Card.Body>
@@ -152,4 +152,4 @@ const SearchBooks = () => {
   );
 };
 
-export default SearchBooks;
+export default SearchBusinesses;

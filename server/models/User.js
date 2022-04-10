@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const dateFormat = require('../utils/dateFormat');
 
 
-const bookSchema = require('./Book');
+const businessSchema = require('./Business');
 
 const userSchema = new Schema(
   {
@@ -75,8 +75,8 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    // set savedBooks to be an array of data that adheres to the bookSchema
-    savedBooks: [bookSchema],
+    
+    savedBusinesses: [businessSchema],
   },
   // set this to use virtual below
   {
@@ -101,9 +101,9 @@ userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
-// when we query a user, we'll also get another field called `bookCount` with the number of saved books we have
-userSchema.virtual('bookCount').get(function () {
-  return this.savedBooks.length;
+
+userSchema.virtual('businessCount').get(function () {
+  return this.savedBusinesses.length;
 });
 
 const User = model('User', userSchema);

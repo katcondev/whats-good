@@ -30,15 +30,15 @@ export const ADD_USER = gql`
     }
   }
 `;
-// export the save book mutation by their dependencies
-export const SAVE_BOOK = gql`
-  mutation saveBook($input: SavedBookInput) {
-    saveBook(input: $input) {
+// export the save Business mutation by their dependencies
+export const SAVE_BUSINESS = gql`
+  mutation saveBusiness($input: SavedBusinessInput) {
+    saveBusiness(input: $input) {
       username
       _id
-      bookCount
-      savedBooks {
-        bookId
+      businessCount
+      savedBusinesses {
+        businessId
         authors
         image
         link
@@ -48,15 +48,15 @@ export const SAVE_BOOK = gql`
     }
   }
 `;
-// export the removeBook by their dependencies
-export const REMOVE_BOOK = gql`
-  mutation removeBook($bookId: String!) {
-    removeBook(bookId: $bookId) {
+// export the removeBusiness by their dependencies
+export const REMOVE_BUSINESS = gql`
+  mutation removeBusiness($businessId: String!) {
+    removeBusiness(businessId: $businessId) {
       _id
       username
-      bookCount
-      savedBooks {
-        bookId
+      businessCount
+      savedBusinesses {
+        businessId
         authors
         image
         link
