@@ -8,13 +8,12 @@ import { Jumbotron, Container, Col, Form, Button, Card, CardColumns } from 'reac
 function search() {
   return (
     <div className='container animate__animated animate__fadeIn mb-5'>
-     <h2 className='mt-5 mb-5'>
-    “WE NEED MORE LIGHT ABOUT EACH OTHER. LIGHT CREATES UNDERSTANDING, UNDERSTANDING CREATES LOVE, LOVE CREATES PATIENCE, AND PATIENCE CREATES UNITY.” -Malcom X
-    </h2>
+     <Col sm={80} classname='m-auto'>
+        <h1 className='mt-5 mb-5'>search experiences</h1></Col>
        <Form className='mb-5' >
             <Form.Row className='mb-5'>
               <Col className='mb-2' xs={12} md={8}>
-              <input name="searchInput" placeholder="search unapologetic experiences" type="text" class="form-control form-control-lg" value=""></input>
+              <input name="searchInput" type="text" class="form-control form-control-lg" value=""></input>
               </Col>
               <Col xs={12} md={4}>
                 <Button type='submit' className='btn-wg btn'>
@@ -23,8 +22,10 @@ function search() {
               </Col>
            </Form.Row>
          </Form>
-    
-        <footer><img className='mt-5' src={cupcake} style={{ width: "65%" }} /></footer> 
+         <h2 className='mt-5 mb-5'>
+    “WE NEED MORE LIGHT ABOUT EACH OTHER. LIGHT CREATES UNDERSTANDING, UNDERSTANDING CREATES LOVE, LOVE CREATES PATIENCE, AND PATIENCE CREATES UNITY.” -Malcom X
+    </h2>
+        <img className='mt-5' id='cupcake' src={cupcake} />
     </div>
 
 
