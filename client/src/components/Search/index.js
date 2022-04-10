@@ -25,7 +25,7 @@ function search() {
          <h2 className='mt-5 mb-5'>
     “WE NEED MORE LIGHT ABOUT EACH OTHER. LIGHT CREATES UNDERSTANDING, UNDERSTANDING CREATES LOVE, LOVE CREATES PATIENCE, AND PATIENCE CREATES UNITY.” -Malcom X
     </h2>
-        <img className='mt-5' src={cupcake} />
+        <img className='mt-5' id='cupcake' src={cupcake} />
     </div>
 
 
